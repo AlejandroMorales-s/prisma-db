@@ -12,6 +12,15 @@ app.get('/', (req, res) => {
     res.json({message: 'alive'});
 });
 
+//* Cors
+const cors=require("cors");
+
+const corsOptions={
+    origin: "http://localhost:8081"
+};
+
+app.use(cors(corsOptions));
+
 //* Explorer Table
 //* ================================================================================
 app.get('/explorers', async (req, res) => {
