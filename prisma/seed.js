@@ -77,8 +77,32 @@ const prisma = new PrismaClient();
       },
     });
 
+    const Maria = await prisma.missionCommander.upsert({
+      where: { name: 'Maria' },
+      update: {},
+      create: {
+        name: 'Maria',
+              username: 'Maria123',
+              mainStack: 'java',
+              currentEnrollment: true,
+              hasAzureCertification: false
+      },
+    });
 
-    console.log('Create 4 explorers and 2 partner');
+    const Gustavo = await prisma.missionCommander.upsert({
+      where: { name: 'Gustavo' },
+      update: {},
+      create: {
+        name: 'Gustavo',
+              username: 'Gustavo90823',
+              mainStack: 'node',
+              currentEnrollment: true,
+              hasAzureCertification: true
+      },
+    });
+
+
+    console.log('Create 4 explorers, 2 partner and 2 missionComander');
   } catch(e) {
     console.error(e);
     process.exit(1);
